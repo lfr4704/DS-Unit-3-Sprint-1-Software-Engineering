@@ -16,7 +16,6 @@ class Product():
     """
 
     def __init__(self, name, identifier=randint(1000000,10000000), price=10, weight=20, flammability=0.5):
-        #supe Product, self).__init__()
         self.name = name
         self.price = price
         self.weight = weight
@@ -52,6 +51,26 @@ class Product():
         else:
             return "...BABOOM!!"
 
+class BoxingGlove(Product): # Inheritance
+    def __init__(self, name, identifier=randint(1000000,10000000), price=10, weight=10, flammability=0.5):
+        super().__init__(name, identifier, price, weight, flammability)
+
+    def explode(self):
+        """
+        Calculates the flammability times the weight, and then returns a message: if the product
+        is less than 10 return "...fizzle.", if it is greater or equal to 10 but less than 50
+        return "...boom!", and otherwise return "...BABOOM!!"
+        """
+
+        return "...it's a glove."
+
+    def punch(self):
+        if self.weight < 5:
+            return "That tickles."
+        elif self.weight >= 5 and self.weight < 15:
+            return "Hey that hurt!"
+        else:
+            "OUCH!"
 
 
 
