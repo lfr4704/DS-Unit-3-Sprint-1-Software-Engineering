@@ -15,12 +15,11 @@ def generate_products(num_products=30):
     products = []
     # TODO - your code! Generate and add random products.
     for x in range(num_products):
-        price = randint(5, 101)
-        weight = randint(5, 101)
-        flammability = uniform(0, 2.5)
-        name = f'{ADJECTIVES[randrange(len(ADJECTIVES))]} {NOUNS[randrange(len(NOUNS))]}'
-        products.append(Product(name, price, weight, flammability))
-
+        products.append(Product(
+        name = f'{ADJECTIVES[randrange(len(ADJECTIVES))]} {NOUNS[randrange(len(NOUNS))]}',
+        price = randint(5, 100),
+        weight = randint(5, 100),
+        flammability = uniform(0.0, 2.5)))
     return products
 
 
@@ -29,11 +28,20 @@ def inventory_report(products):
     takes a list of products, and prints a "nice" summary
     """
     # TODO - your code! Loop over the products to calculate the report.
-    df = pd.Series(products)
-    print(df)
+    names = set() # what are sets: https://realpython.com/python-sets/
+    total_price =0
+    total_weight=0
+    total_flammability=0.0
+    for product in products:
+        names.add(product.name)
+        total_price += product.price
+        total_weight += product.weight
+        total_flammability += product.flammability
     print('ACME CORPORATION OFFICIAL INVENTORY REPORT')
-
-
+    print(f'Unique product names:{len(names)}')
+    print(f'Average price: {total_price/len(products)}')
+    print(f'Average weight: {total_weight/len(products)}')
+    print(f'Average flammability:{total_flammability/len(products)}')
 
 
 if __name__ == '__main__':

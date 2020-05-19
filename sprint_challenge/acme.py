@@ -22,6 +22,12 @@ class Product():
         self.flammability = flammability
         self.identifier = identifier
 
+    def __str__(self):
+        """
+        This function will print objects to strings
+        """
+        return f'{self.name}, {self.price}, {self.weight}, {self.flammability}, {self.identifier}'
+
     def stealability(self):
         """
         calculates the price divided by the weight, and then returns a message: if the ratio
@@ -75,4 +81,7 @@ class BoxingGlove(Product): # Inheritance
 
 
 
-#if __name__ =="__main__":
+if __name__ =="__main__":
+
+    prod = Product("hello")
+    #print(prod.name)
