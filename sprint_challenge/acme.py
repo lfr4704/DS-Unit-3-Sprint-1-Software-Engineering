@@ -78,10 +78,7 @@ class BoxingGlove(Product): # Inheritance
         else:
             "OUCH!"
 
+#not neede but leave it for reference
+#if __name__ =="__main__":
 
-
-
-if __name__ =="__main__":
-
-    prod = Product("hello")
-    #print(prod.name)
+#    prod = Product("hello")
